@@ -1,18 +1,29 @@
-# Proyecto MongoDB - Tienda de Ropa
+# Velaxing MongoDB Project
 
-## Descripción
+## Description
 
-Base de datos para una tienda de ropa usando MongoDB.
+This project implements a MongoDB database for **Velaxing**, a handcrafted candle business. The database manages customers, candles, and sales while demonstrating the main CRUD operations and aggregation queries using MongoDB.
 
-## Tecnologías
+## Technologies
 
-- MongoDB
-- JavaScript
-- GitHub
+* MongoDB Atlas
+* MongoDB Compass
+* Mongosh
+* JavaScript
+* Git
+* GitHub
 
-## Colecciones
+## Database
 
-### Usuarios
+**Database Name**
+
+```
+velaxingDB
+```
+
+## Collections
+
+### Customers
 
 ```json
 {
@@ -22,37 +33,55 @@ Base de datos para una tienda de ropa usando MongoDB.
 }
 ```
 
-### Marcas
+### Candles
 
 ```json
 {
-  "nombre": "Nike",
-  "pais": "Estados Unidos"
-}
-```
-
-### Prendas
-
-```json
-{
-  "nombre": "Camiseta deportiva",
-  "marca": "Nike",
-  "precio": 15000,
+  "nombre": "Serenity Lavanda",
+  "aroma": "Lavanda",
+  "tamano": "Mediana",
+  "descripcion": "Aroma relajante ideal para espacios de descanso",
+  "precio": 6500,
+  "moneda": "CRC",
   "stock": 20
 }
 ```
 
-### Ventas
+### Sales
 
 ```json
 {
   "cliente": "María López",
-  "prenda": "Camiseta deportiva",
+  "vela": "Serenity Lavanda",
   "cantidad": 2,
-  "fecha": "2026-05-20"
+  "fecha": "2026-06-20"
 }
 ```
 
-## Integrantes
+## Implemented Operations
 
+<<<<<<< HEAD:README.md
 - Tu nombre
+=======
+### CRUD
+
+* Insert one document
+* Insert multiple documents
+* Update one document
+* Delete one document
+
+### Queries
+
+* Sales by date
+* Distinct candles sold
+* Candle inventory with sales (`$lookup`)
+* Top 5 best-selling candles
+
+## Author
+
+* Estefanía Quesada
+
+## Nota
+
+Este proyecto fue desarrollado con fines académicos y, al mismo tiempo, fue diseñado tomando como referencia el emprendimiento real **Velaxing**, con el objetivo de crear una base de datos que pueda servir como punto de partida para un futuro sistema de gestión de clientes, inventario y ventas.
+
