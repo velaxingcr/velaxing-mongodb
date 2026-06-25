@@ -1,10 +1,10 @@
-# Velaxing MongoDB Project
+# Proyecto MongoDB - Velaxing
 
-## Description
+## Descripción
 
-This project implements a MongoDB database for **Velaxing**, a handcrafted candle business. The database manages customers, candles, and sales while demonstrating the main CRUD operations and aggregation queries using MongoDB.
+Este proyecto implementa una base de datos en MongoDB para **Velaxing**, un emprendimiento de velas aromáticas artesanales. La base de datos permite gestionar clientes, velas y ventas, demostrando las principales operaciones CRUD y consultas mediante agregaciones de MongoDB.
 
-## Technologies
+## Tecnologías utilizadas
 
 * MongoDB Atlas
 * MongoDB Compass
@@ -13,17 +13,17 @@ This project implements a MongoDB database for **Velaxing**, a handcrafted candl
 * Git
 * GitHub
 
-## Database
+## Base de datos
 
-**Database Name**
+**Nombre de la base de datos**
 
-```
+```text
 velaxingDB
 ```
 
-## Collections
+## Colecciones
 
-### Customers
+### Clientes
 
 ```json
 {
@@ -33,7 +33,7 @@ velaxingDB
 }
 ```
 
-### Candles
+### Velas
 
 ```json
 {
@@ -47,7 +47,7 @@ velaxingDB
 }
 ```
 
-### Sales
+### Ventas
 
 ```json
 {
@@ -58,30 +58,26 @@ velaxingDB
 }
 ```
 
-## Implemented Operations
+## Operaciones implementadas
 
-<<<<<<< HEAD:README.md
-- Tu nombre
-=======
 ### CRUD
 
-* Insert one document
-* Insert multiple documents
-* Update one document
-* Delete one document
+* Insertar un documento (`insertOne`)
+* Insertar múltiples documentos (`insertMany`)
+* Actualizar un documento (`updateOne`)
+* Eliminar un documento (`deleteOne`)
 
-### Queries
+### Consultas
 
-* Sales by date
-* Distinct candles sold
-* Candle inventory with sales (`$lookup`)
-* Top 5 best-selling candles
+* Obtener la cantidad de velas vendidas por una fecha específica.
+* Obtener las velas que tienen al menos una venta (`distinct`).
+* Consultar las velas vendidas y el stock restante utilizando `$lookup`.
+* Obtener el Top 5 de velas más vendidas mediante `aggregate`.
 
-## Author
+## Integrante
 
 * Estefanía Quesada
 
 ## Nota
 
-Este proyecto fue desarrollado con fines académicos y, al mismo tiempo, fue diseñado tomando como referencia el emprendimiento real **Velaxing**, con el objetivo de crear una base de datos que pueda servir como punto de partida para un futuro sistema de gestión de clientes, inventario y ventas.
-
+Este proyecto fue desarrollado con fines académicos y, al mismo tiempo, fue diseñado tomando como referencia el emprendimiento **Velaxing**, con el objetivo de crear una base de datos que pueda servir como punto de partida para un futuro sistema de gestión de clientes, inventario y ventas.
