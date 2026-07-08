@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.models.cliente import ClienteModel
-from app.utils.token import token_requerido
+#from app.utils.token import token_requerido
 
 clientes_endpoints = Blueprint('clientes_endpoints', __name__)
 

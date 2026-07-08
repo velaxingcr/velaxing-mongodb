@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.models.vela import VelaModel
-from app.utils.token import token_requerido
+#from app.utils.token import token_requerido
 
 velas_endpoints = Blueprint('velas_endpoints', __name__)
 

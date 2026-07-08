@@ -1,0 +1,221 @@
+{
+  "info": {
+    "_postman_id": "b4a88b0c-52d8-4d9b-9b27-velaxing-api-v1",
+    "name": "Velaxing API",
+    "description": "CRUD de Clientes, Velas y Ventas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000/velaxing/api/v1"
+    },
+    {
+      "key": "clienteId",
+      "value": ""
+    },
+    {
+      "key": "velaId",
+      "value": ""
+    },
+    {
+      "key": "ventaId",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "GET - Todos los clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/clientes"
+          }
+        },
+        {
+          "name": "GET - Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/clientes?id={{clienteId}}"
+          }
+        },
+        {
+          "name": "POST - Crear cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"María López\",\n    \"correo\": \"maria@gmail.com\",\n    \"telefono\": \"88887777\"\n}"
+            },
+            "url": "{{baseUrl}}/clientes"
+          }
+        },
+        {
+          "name": "PUT - Actualizar cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"telefono\": \"70000000\"\n}"
+            },
+            "url": "{{baseUrl}}/clientes/{{clienteId}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/clientes/{{clienteId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Velas",
+      "item": [
+        {
+          "name": "GET - Todas las velas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/velas"
+          }
+        },
+        {
+          "name": "GET - Vela por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/velas?id={{velaId}}"
+          }
+        },
+        {
+          "name": "POST - Crear vela",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nombre\": \"Serenity Lavanda\",\n    \"aroma\": \"Lavanda\",\n    \"tamano\": \"Mediana\",\n    \"descripcion\": \"Aroma relajante ideal para espacios de descanso\",\n    \"precio\": 6500,\n    \"moneda\": \"CRC\",\n    \"stock\": 20\n}"
+            },
+            "url": "{{baseUrl}}/velas"
+          }
+        },
+        {
+          "name": "PUT - Actualizar vela",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stock\": 15\n}"
+            },
+            "url": "{{baseUrl}}/velas/{{velaId}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar vela",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/velas/{{velaId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ventas",
+      "item": [
+        {
+          "name": "GET - Todas las ventas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/ventas"
+          }
+        },
+        {
+          "name": "GET - Venta por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/ventas?id={{ventaId}}"
+          }
+        },
+        {
+          "name": "POST - Crear venta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cliente\": \"María López\",\n    \"vela\": \"Serenity Lavanda\",\n    \"cantidad\": 2,\n    \"fecha\": \"2026-06-20\"\n}"
+            },
+            "url": "{{baseUrl}}/ventas"
+          }
+        },
+        {
+          "name": "PUT - Actualizar venta",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cantidad\": 5\n}"
+            },
+            "url": "{{baseUrl}}/ventas/{{ventaId}}"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar venta",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/ventas/{{ventaId}}"
+          }
+        }
+      ]
+    }
+  ]
+}
