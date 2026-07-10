@@ -84,6 +84,39 @@ velaxingDB
 
 ---
 
+## Autenticación
+
+Todos los endpoints de la API están protegidos mediante **Bearer Token**. Cada solicitud debe incluir el header de autorización con un token válido almacenado en la colección `tokens` de MongoDB.
+
+**Header requerido:**
+
+```
+Authorization: Bearer <token>
+```
+
+**Respuesta si el token falta o es inválido (401):**
+
+```json
+{ "error": "token no valido" }
+```
+
+**Respuesta si el token está expirado (401):**
+
+```json
+{ "error": "token expirado" }
+```
+
+**Insertar un token válido en MongoDB:**
+
+```js
+db.tokens.insertOne({
+  token: "abc123456",
+  expiracion: new Date("2027-01-01")
+})
+```
+
+---
+
 ## Velas
 
 ### Obtener todas las velas
@@ -532,10 +565,9 @@ velaxingDB
 
 ---
 
-## Integrantes
+## Integrante
 
 * Estefanía Quesada
-* Meilyn Flores
 
 ## Nota
 

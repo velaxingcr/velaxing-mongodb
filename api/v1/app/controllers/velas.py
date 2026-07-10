@@ -1,12 +1,16 @@
 from flask import Blueprint, request, jsonify
 from app.models.vela import VelaModel
-#from app.utils.token import token_requerido
+from app.utils.token import validar_token
 
 velas_endpoints = Blueprint('velas_endpoints', __name__)
 
 
+@velas_endpoints.before_request
+def verificar_seguridad():
+    return validar_token()
+
+
 @velas_endpoints.route('/velas', methods=['GET'])
-#@token_requerido
 def obtenerVelas():
 
     idVela = request.args.get('id')
@@ -22,7 +26,6 @@ def obtenerVelas():
 
 
 @velas_endpoints.route('/velas', methods=['POST'])
-#@token_requerido
 def addVela():
 
     data = request.get_json()
@@ -52,7 +55,6 @@ def addVela():
 
 
 @velas_endpoints.route('/velas/<idVela>', methods=['PUT'])
-#@token_requerido
 def updateVela(idVela):
 
     data = request.get_json()
@@ -71,7 +73,6 @@ def updateVela(idVela):
 
 
 @velas_endpoints.route('/velas/<idVela>', methods=['DELETE'])
-#@token_requerido
 def eliminarVela(idVela):
 
     resultado = VelaModel.eliminar(idVela)

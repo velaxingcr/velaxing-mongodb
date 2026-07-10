@@ -1,12 +1,16 @@
 from flask import Blueprint, request, jsonify
 from app.models.venta import VentaModel
-#from app.utils.token import token_requerido
+from app.utils.token import validar_token
 
 ventas_endpoints = Blueprint('ventas_endpoints', __name__)
 
 
+@ventas_endpoints.before_request
+def verificar_seguridad():
+    return validar_token()
+
+
 @ventas_endpoints.route('/ventas', methods=['GET'])
-#@token_requerido
 def obtenerVentas():
 
     idVenta = request.args.get('id')
@@ -22,7 +26,6 @@ def obtenerVentas():
 
 
 @ventas_endpoints.route('/ventas', methods=['POST'])
-#@token_requerido
 def addVenta():
 
     data = request.get_json()
@@ -49,7 +52,6 @@ def addVenta():
 
 
 @ventas_endpoints.route('/ventas/<idVenta>', methods=['PUT'])
-#@token_requerido
 def updateVenta(idVenta):
 
     data = request.get_json()
@@ -68,7 +70,6 @@ def updateVenta(idVenta):
 
 
 @ventas_endpoints.route('/ventas/<idVenta>', methods=['DELETE'])
-#@token_requerido
 def eliminarVenta(idVenta):
 
     resultado = VentaModel.eliminar(idVenta)

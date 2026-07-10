@@ -1,12 +1,16 @@
 from flask import Blueprint, request, jsonify
 from app.models.cliente import ClienteModel
-#from app.utils.token import token_requerido
+from app.utils.token import validar_token
 
 clientes_endpoints = Blueprint('clientes_endpoints', __name__)
 
 
+@clientes_endpoints.before_request
+def verificar_seguridad():
+    return validar_token()
+
+
 @clientes_endpoints.route('/clientes', methods=['GET'])
-#@token_requerido
 def obtenerClientes():
 
     idCliente = request.args.get('id')
@@ -22,7 +26,6 @@ def obtenerClientes():
 
 
 @clientes_endpoints.route('/clientes', methods=['POST'])
-#@token_requerido
 def addCliente():
 
     data = request.get_json()
@@ -39,7 +42,6 @@ def addCliente():
 
 
 @clientes_endpoints.route('/clientes/<idCliente>', methods=['PUT'])
-#@token_requerido
 def updateCliente(idCliente):
 
     data = request.get_json()
@@ -58,7 +60,6 @@ def updateCliente(idCliente):
 
 
 @clientes_endpoints.route('/clientes/<idCliente>', methods=['DELETE'])
-#@token_requerido
 def eliminarCliente(idCliente):
 
     resultado = ClienteModel.eliminar(idCliente)
