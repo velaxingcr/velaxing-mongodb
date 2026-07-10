@@ -18,10 +18,12 @@ def create_app():
     from .controllers.clientes import clientes_endpoints
     from .controllers.velas import velas_endpoints
     from .controllers.ventas import ventas_endpoints
+    from .controllers.reportes import reportes_endpoints
 
     app.register_blueprint(clientes_endpoints, url_prefix="/velaxing/api/v1")
     app.register_blueprint(velas_endpoints, url_prefix="/velaxing/api/v1")
     app.register_blueprint(ventas_endpoints, url_prefix="/velaxing/api/v1")
+    app.register_blueprint(reportes_endpoints, url_prefix="/velaxing/api/v1")
     
 
     return app

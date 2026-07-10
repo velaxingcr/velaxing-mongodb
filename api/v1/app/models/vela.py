@@ -48,4 +48,71 @@ class VelaModel:
             return result.deleted_count
         except:
             return -1
+
+    @staticmethod
+    def obtener_velas_con_ventas():
+        try:
+            resultado = mongo.db.ventas.distinct("vela")
+            return resultado
+        except Exception:
+            return []    
+            
+    @staticmethod
+    def obtener_velas_stock():
+        try:
+            resultado = mongo.db.velas.aggregate([
+                {
+                    "$lookup": {
+                        "from": "ventas",
+                        "localField": "nombre",
+                        "foreignField": "vela",
+                        "as": "ventasRelacionadas"
+                    }
+                },
+                {
+                    "$project": {
+                        "_id": 0,
+                        "nombre": 1,
+                        "aroma": 1,
+                        "tamano": 1,
+                        "precio": 1,
+                        "moneda": 1,
+                        "stock": 1,
+                        "cantidadVendida": {
+                            "$sum": "$ventasRelacionadas.cantidad"
+                        }
+                    }
+                }
+            ])
+
+            return list(resultado)
+
+        except Exception:
+            return []
         
+    @staticmethod
+    def obtener_top5_velas():
+        try:
+            resultado = mongo.db.ventas.aggregate([
+                {
+                    "$group": {
+                        "_id": "$vela",
+                        "totalVentas": {
+                            "$sum": "$cantidad"
+                        }
+                    }
+                },
+                {
+                    "$sort": {
+                        "totalVentas": -1
+                    }
+                },
+                {
+                    "$limit": 5
+                }
+            ])
+
+            return list(resultado)
+
+        except Exception:
+            return []

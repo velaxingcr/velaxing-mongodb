@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "b4a88b0c-52d8-4d9b-9b27-velaxing-api-v1",
     "name": "Velaxing API",
-    "description": "CRUD de Clientes, Velas y Ventas",
+    "description": "CRUD de Clientes, Velas, Ventas y Reportes",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -213,6 +213,35 @@
             "method": "DELETE",
             "header": [],
             "url": "{{baseUrl}}/ventas/{{ventaId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reportes",
+      "item": [
+        {
+          "name": "GET - Velas con ventas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/reportes/velas-con-ventas"
+          }
+        },
+        {
+          "name": "GET - Velas vendidas y stock",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/reportes/velas-stock"
+          }
+        },
+        {
+          "name": "GET - Top 5 velas más vendidas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/reportes/top-5-velas"
           }
         }
       ]
