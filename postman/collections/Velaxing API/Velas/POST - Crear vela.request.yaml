@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseUrl}}/velas"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "nombre": "Serenity Lavanda",
+        "aroma": "Lavanda",
+        "tamano": "Mediana",
+        "descripcion": "Aroma relajante ideal para espacios de descanso",
+        "precio": 6500,
+        "moneda": "CRC",
+        "stock": 20
+    }
+order: 3000

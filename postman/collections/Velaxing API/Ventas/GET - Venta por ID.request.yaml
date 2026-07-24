@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{baseUrl}}/ventas?id={{ventaId}}"
+method: GET
+queryParams:
+  id: "{{ventaId}}"
+order: 2000

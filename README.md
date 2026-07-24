@@ -15,6 +15,18 @@ Este proyecto implementa una base de datos en MongoDB para **Velaxing**, un empr
 * Git
 * GitHub
 
+## Front-end
+
+El proyecto incluye una interfaz web desarrollada con HTML5, CSS3, JavaScript y Bootstrap 5.
+
+Desde la aplicación el usuario puede:
+
+- Gestionar clientes.
+- Gestionar velas.
+- Registrar ventas.
+- Consultar reportes.
+- Consumir la API REST mediante peticiones AJAX utilizando Fetch.
+
 ## Base de datos
 
 **Nombre de la base de datos**
@@ -22,6 +34,23 @@ Este proyecto implementa una base de datos en MongoDB para **Velaxing**, un empr
 ```text
 velaxingDB
 ```
+## Estructura del proyecto
+
+Proyecto
+
+├── api
+│   ├── app
+│   ├── run.py
+│   └── requirements.txt
+│
+├── database
+│
+├── front-end
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+└── README.md
 
 ## Colecciones
 
@@ -77,6 +106,24 @@ velaxingDB
 * Obtener el Top 5 de velas más vendidas mediante `aggregate`.
 
 ---
+## Ejecución del proyecto
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <https://github.com/velaxingcr/velaxing-mongodb>
+
+## Estado del proyecto
+
+Actualmente el sistema cuenta con:
+
+- API REST desarrollada con Flask.
+- Base de datos MongoDB Atlas.
+- Autenticación mediante Bearer Token.
+- Operaciones CRUD para clientes, velas y ventas.
+- Reportes utilizando agregaciones de MongoDB.
+- Interfaz web desarrollada con Bootstrap.
+- Integración completa entre el front-end y la API mediante Fetch.
 
 ## Documentación de la API
 

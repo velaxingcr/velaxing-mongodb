@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/ventas"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "cliente": "María López",
+        "vela": "Serenity Lavanda",
+        "cantidad": 2,
+        "fecha": "2026-06-20"
+    }
+order: 3000

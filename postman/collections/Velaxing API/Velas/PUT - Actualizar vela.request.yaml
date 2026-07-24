@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/velas/{{velaId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "stock": 15
+    }
+order: 4000

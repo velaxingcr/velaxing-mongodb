@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/ventas/{{ventaId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "cantidad": 5
+    }
+order: 4000

@@ -1,0 +1,11 @@
+# Use this workspace to collaborate
+workspace:
+  id: 9fc818c4-dd5a-43e3-8398-16fe183d9964
+
+localResources:
+  collections:
+    - ..\Velaxing_API.postman_collection.json
+
+cloudResources:
+  collections:
+    ..\postman\collections\Velaxing API: e884010c-66a8-4c98-b5ef-666e2dfce856

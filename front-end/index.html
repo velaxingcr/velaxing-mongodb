@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Velaxing Admin</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-4">
+
+        <!-- Encabezado -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">🕯️ Velaxing Admin</h1>
+            <p class="lead text-muted">
+                Sistema de gestión de clientes, velas y ventas
+            </p>
+        </div>
+
+        <!-- Menú -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="menuPrincipal">
+
+            <li class="nav-item">
+                <button class="nav-link active"
+                        onclick="mostrarSeccion('clientes')">
+                    Clientes
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link"
+                        onclick="mostrarSeccion('velas')">
+                    Velas
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link"
+                        onclick="mostrarSeccion('ventas')">
+                    Ventas
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link"
+                        onclick="mostrarSeccion('reportes')">
+                    Reportes
+                </button>
+            </li>
+
+        </ul>
+
+        <!-- ===================== CLIENTES ===================== -->
+
+        <div id="clientes" class="contenido">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header bg-primary text-white">
+                    Gestión de Clientes
+                </div>
+
+                <div class="card-body">
+
+                    <button class="btn btn-success mb-3">
+                        Agregar Cliente
+                    </button>
+
+                    <table class="table table-striped table-hover">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaClientes">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== VELAS ===================== -->
+
+        <div id="velas" class="contenido d-none">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header bg-warning">
+                    Gestión de Velas
+                </div>
+
+                <div class="card-body">
+
+                    <button class="btn btn-success mb-3">
+                        Agregar Vela
+                    </button>
+
+                    <table class="table table-striped table-hover">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Aroma</th>
+                                <th>Tamaño</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaVelas">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== VENTAS ===================== -->
+
+        <div id="ventas" class="contenido d-none">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header bg-success text-white">
+                    Gestión de Ventas
+                </div>
+
+                <div class="card-body">
+
+                    <button class="btn btn-primary mb-3">
+                        Registrar Venta
+                    </button>
+
+                    <table class="table table-striped table-hover">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Vela</th>
+                                <th>Cantidad</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaVentas">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== REPORTES ===================== -->
+
+        <div id="reportes" class="contenido d-none">
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+
+                    <div class="card shadow-sm">
+
+                        <div class="card-header bg-info text-white">
+                            Velas con ventas
+                        </div>
+
+                        <div class="card-body">
+
+                            <table class="table">
+
+                                <tbody id="reporteVelasVentas">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <div class="card shadow-sm">
+
+                        <div class="card-header bg-secondary text-white">
+                            Stock disponible
+                        </div>
+
+                        <div class="card-body">
+
+                            <table class="table">
+
+                                <tbody id="reporteStock">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <div class="card shadow-sm">
+
+                        <div class="card-header bg-danger text-white">
+                            Top 5 Velas
+                        </div>
+
+                        <div class="card-body">
+
+                            <table class="table">
+
+                                <tbody id="reporteTop5">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

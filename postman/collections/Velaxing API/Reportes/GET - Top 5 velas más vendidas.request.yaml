@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/reportes/top-5-velas"
+method: GET
+order: 3000

@@ -1,0 +1,14 @@
+$kind: collection
+description: CRUD de Clientes, Velas, Ventas y Reportes
+variables:
+  baseUrl: http://127.0.0.1:5000/velaxing/api/v1
+  clienteId: ""
+  velaId: ""
+  ventaId: ""
+  token: abc123456
+auth:
+  - id: 8cc6dcb5-4efb-4353-acf0-5641b4a6e9e9
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: "{{token}}"

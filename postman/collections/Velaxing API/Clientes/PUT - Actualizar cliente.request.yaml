@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/clientes/{{clienteId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "telefono": "70000000"
+    }
+order: 4000

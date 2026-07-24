@@ -2,38 +2,47 @@ from flask import Blueprint, request, jsonify
 from app.models.cliente import ClienteModel
 from app.utils.token import validar_token
 
-clientes_endpoints = Blueprint('clientes_endpoints', __name__)
+clientes_endpoints = Blueprint("clientes_endpoints", __name__)
 
 
 @clientes_endpoints.before_request
 def verificar_seguridad():
+    # El navegador utiliza OPTIONS para comprobar que CORS está permitido.
+    # Esta solicitud no debe exigir token.
+    if request.method == "OPTIONS":
+        return None
+
     return validar_token()
 
 
-@clientes_endpoints.route('/clientes', methods=['GET'])
+@clientes_endpoints.route("/clientes", methods=["GET"])
 def obtenerClientes():
-
-    idCliente = request.args.get('id')
+    idCliente = request.args.get("id")
 
     if idCliente:
         cliente = ClienteModel.obtener_por_id(idCliente)
+
         if cliente:
             return jsonify(cliente), 200
+
         return jsonify({"error": "Cliente no encontrado"}), 404
 
     clientes = ClienteModel.obtener_todos()
     return jsonify(clientes), 200
 
 
-@clientes_endpoints.route('/clientes', methods=['POST'])
+@clientes_endpoints.route("/clientes", methods=["POST"])
 def addCliente():
-
     data = request.get_json()
 
     if not data:
         return jsonify({"error": "Datos vacíos"}), 400
 
-    if "nombre" not in data or "correo" not in data or "telefono" not in data:
+    if (
+        "nombre" not in data
+        or "correo" not in data
+        or "telefono" not in data
+    ):
         return jsonify({"error": "Faltan campos obligatorios"}), 400
 
     idCliente = ClienteModel.crear(data)
@@ -41,9 +50,8 @@ def addCliente():
     return jsonify({"id": str(idCliente)}), 200
 
 
-@clientes_endpoints.route('/clientes/<idCliente>', methods=['PUT'])
+@clientes_endpoints.route("/clientes/<idCliente>", methods=["PUT"])
 def updateCliente(idCliente):
-
     data = request.get_json()
 
     if data is None:
@@ -59,14 +67,16 @@ def updateCliente(idCliente):
     }), 200
 
 
-@clientes_endpoints.route('/clientes/<idCliente>', methods=['DELETE'])
+@clientes_endpoints.route("/clientes/<idCliente>", methods=["DELETE"])
 def eliminarCliente(idCliente):
-
     resultado = ClienteModel.eliminar(idCliente)
 
     if resultado == -1:
         return jsonify({"error": "Cliente no eliminado"}), 404
 
     return jsonify({
-        "mensaje": f"Cliente con el id {idCliente} ha sido eliminado correctamente."
+        "mensaje": (
+            f"Cliente con el id {idCliente} "
+            "ha sido eliminado correctamente."
+        )
     }), 200
